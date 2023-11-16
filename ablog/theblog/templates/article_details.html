@@ -6,6 +6,10 @@
     <title>theblog</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>{{ post.title }}</h1>
+    <small>By: {{ post.author.first_name}} {{ post.author.last_name}}</small>
+    <br>
+    <p>{{ post.body }}</p>
+    <a href="{% url 'index' %}">back</a>
 </body>
 </html>

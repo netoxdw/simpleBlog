@@ -1,6 +1,9 @@
 from django.db import models
 # Investigar para que se usa. Al parecer es para conectar con superuser y usuarios creados
 from django.contrib.auth.models import User
+# Importar metodo reverse
+from django.urls import reverse
+
 # Create your models here.
 
 class Post(models.Model):
@@ -14,3 +17,6 @@ class Post(models.Model):
     # El str(self.author) se encapsula por ser un objeto foraneo
     def __str__(self):
         return self.title + ' | ' + str(self.author) 
+    
+    def get_absolute_url(self):
+        return reverse('article-detail', args=(str(self.id)))

@@ -12,11 +12,16 @@ class Post(models.Model):
     # Esto quiere decir on_delete=models.CASCADE que se se elimina al usuario que escribio el post en automatico se eliminan sus posts
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
+    post_date = models.DateTimeField(auto_now_add=True)
 
     # Investigar como se llama esta funcion   
     # El str(self.author) se encapsula por ser un objeto foraneo
     def __str__(self):
         return self.title + ' | ' + str(self.author) 
     
+    class Meta:
+        ordering = ['-post_date']
+
+        
     def get_absolute_url(self):
-        return reverse('article-detail', args=(str(self.id)))
+        return reverse('index')

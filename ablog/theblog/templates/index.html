@@ -25,6 +25,7 @@
             {{ post.author.last_name}} <br>
             {{ post.author.email}}
             <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
+            <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
             <br>
             {{ post.body}}
         </li>

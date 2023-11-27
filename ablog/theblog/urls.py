@@ -2,7 +2,7 @@ from django.urls import path
 
 # **from theblog import views
 
-from .views import IndexView, ArticleDetailView, AddPostView, UpdatePostView
+from .views import IndexView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
 urlpatterns = [
     #Donde index es una funcion a mostrar como template
     # **path('', views.index, name="index"), #Donde index es una funcion a mostrar como template
@@ -10,4 +10,5 @@ urlpatterns = [
     path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
     path('add_post/', AddPostView.as_view(), name='add_post'),
     path('article/update/<int:pk>', UpdatePostView.as_view(), name='update_post'),
+    path('article/<int:pk>/remove', DeletePostView.as_view(), name='delete_post'),
 ]

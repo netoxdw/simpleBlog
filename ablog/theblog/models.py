@@ -21,7 +21,6 @@ class Post(models.Model):
     
     class Meta:
         ordering = ['-post_date']
-
         
     def get_absolute_url(self):
         return reverse('index')
